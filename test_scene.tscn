@@ -1,3 +1,65 @@
-[gd_scene format=3 uid="uid://kgo18mmqew1d"]
+[gd_scene load_steps=8 format=3 uid="uid://kgo18mmqew1d"]
+
+[ext_resource type="PackedScene" uid="uid://dppme0jo221w" path="res://prefabs/mouse_cursor.tscn" id="1_20vts"]
+[ext_resource type="Texture2D" uid="uid://bmponpm7iuwgv" path="res://assets/temp assets/test meats/meat1.png" id="2_cp8j0"]
+[ext_resource type="Texture2D" uid="uid://cua8270cu1yov" path="res://assets/temp assets/test meats/meat3.png" id="3_msto8"]
+[ext_resource type="Texture2D" uid="uid://bgx1n2yu7lipw" path="res://assets/temp assets/test meats/meat2.png" id="4_r3ocl"]
+[ext_resource type="Texture2D" uid="uid://ccnlx00w6e65a" path="res://assets/temp assets/test meats/access1.png" id="5_ynm26"]
+[ext_resource type="Texture2D" uid="uid://bibvfohmwxkxh" path="res://assets/temp assets/seth_default.png" id="6_ng2sf"]
+[ext_resource type="Texture2D" uid="uid://ckkbc0p3lv5sx" path="res://assets/temp assets/soleil_default.png" id="7_65lfo"]
 
 [node name="TestScene" type="Node2D"]
+
+[node name="MouseCursor" parent="." instance=ExtResource("1_20vts")]
+
+[node name="Meat1" type="Sprite2D" parent="."]
+position = Vector2(430, 248)
+texture = ExtResource("2_cp8j0")
+
+[node name="Meat3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(525, 377)
+texture = ExtResource("3_msto8")
+
+[node name="Meat2" type="Sprite2D" parent="."]
+position = Vector2(456, 450)
+texture = ExtResource("4_r3ocl")
+
+[node name="Access1" type="Sprite2D" parent="."]
+position = Vector2(442, 221)
+texture = ExtResource("5_ynm26")
+
+[node name="Meat4" type="Sprite2D" parent="."]
+position = Vector2(570, 458)
+texture = ExtResource("4_r3ocl")
+
+[node name="Access2" type="Sprite2D" parent="."]
+position = Vector2(459, 268)
+texture = ExtResource("5_ynm26")
+
+[node name="Access3" type="Sprite2D" parent="."]
+position = Vector2(369, 217)
+texture = ExtResource("5_ynm26")
+
+[node name="SethDefault" type="Sprite2D" parent="."]
+position = Vector2(141, 573)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ng2sf")
+
+[node name="SoleilDefault" type="Sprite2D" parent="."]
+position = Vector2(1128, 566)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_65lfo")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 618.0
+offset_top = 681.0
+offset_right = 658.0
+offset_bottom = 721.0
+grow_horizontal = 2
+grow_vertical = 0
