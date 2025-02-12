@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://kgo18mmqew1d"]
+[gd_scene load_steps=11 format=3 uid="uid://kgo18mmqew1d"]
 
 [ext_resource type="PackedScene" uid="uid://dppme0jo221w" path="res://prefabs/mouse_cursor.tscn" id="1_20vts"]
 [ext_resource type="Texture2D" uid="uid://bmponpm7iuwgv" path="res://assets/temp assets/test meats/meat1.png" id="2_cp8j0"]
@@ -7,59 +7,174 @@
 [ext_resource type="Texture2D" uid="uid://ccnlx00w6e65a" path="res://assets/temp assets/test meats/access1.png" id="5_ynm26"]
 [ext_resource type="Texture2D" uid="uid://bibvfohmwxkxh" path="res://assets/temp assets/seth_default.png" id="6_ng2sf"]
 [ext_resource type="Texture2D" uid="uid://ckkbc0p3lv5sx" path="res://assets/temp assets/soleil_default.png" id="7_65lfo"]
+[ext_resource type="Texture2D" uid="uid://c0my5v0xibqas" path="res://assets/temp assets/test meats/meat4.png" id="7_ox1vm"]
+[ext_resource type="Texture2D" uid="uid://jv6lg18waeq0" path="res://assets/temp assets/1280x720bg.png" id="9_nwdyp"]
+[ext_resource type="Texture2D" uid="uid://psqrlqny4ycm" path="res://assets/temp assets/640x360.png" id="9_yeq4o"]
 
 [node name="TestScene" type="Node2D"]
 
 [node name="MouseCursor" parent="." instance=ExtResource("1_20vts")]
 
-[node name="Meat1" type="Sprite2D" parent="."]
+[node name="MeatHorse" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Meat1" type="Sprite2D" parent="MeatHorse"]
 position = Vector2(430, 248)
 texture = ExtResource("2_cp8j0")
 
-[node name="Meat3" type="Sprite2D" parent="."]
+[node name="Meat3" type="Sprite2D" parent="MeatHorse"]
 z_index = 1
 position = Vector2(525, 377)
 texture = ExtResource("3_msto8")
 
-[node name="Meat2" type="Sprite2D" parent="."]
+[node name="Meat2" type="Sprite2D" parent="MeatHorse"]
 position = Vector2(456, 450)
 texture = ExtResource("4_r3ocl")
 
-[node name="Access1" type="Sprite2D" parent="."]
+[node name="Access1" type="Sprite2D" parent="MeatHorse"]
 position = Vector2(442, 221)
 texture = ExtResource("5_ynm26")
 
-[node name="Meat4" type="Sprite2D" parent="."]
+[node name="Meat4" type="Sprite2D" parent="MeatHorse"]
 position = Vector2(570, 458)
 texture = ExtResource("4_r3ocl")
 
-[node name="Access2" type="Sprite2D" parent="."]
+[node name="Access2" type="Sprite2D" parent="MeatHorse"]
 position = Vector2(459, 268)
 texture = ExtResource("5_ynm26")
 
-[node name="Access3" type="Sprite2D" parent="."]
+[node name="Access3" type="Sprite2D" parent="MeatHorse"]
 position = Vector2(369, 217)
 texture = ExtResource("5_ynm26")
 
-[node name="SethDefault" type="Sprite2D" parent="."]
-position = Vector2(141, 573)
+[node name="Sprites" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Control2" type="Control" parent="Sprites"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Node2D" type="Node2D" parent="Sprites/Control2"]
+position = Vector2(138, -108)
+
+[node name="SethDefault" type="Sprite2D" parent="Sprites/Control2/Node2D"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_ng2sf")
 
-[node name="SoleilDefault" type="Sprite2D" parent="."]
-position = Vector2(1128, 566)
+[node name="Control3" type="Control" parent="Sprites"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Node2D" type="Node2D" parent="Sprites/Control3"]
+position = Vector2(-87, -112)
+
+[node name="SoleilDefault" type="Sprite2D" parent="Sprites/Control3/Node2D"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_65lfo")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="MeatMenu" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="MeatMenu"]
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 618.0
-offset_top = 681.0
-offset_right = 658.0
-offset_bottom = 721.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MeatMenu/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MeatMenu/Control/ScrollContainer"]
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_cp8j0")
+texture_pressed = ExtResource("5_ynm26")
+texture_hover = ExtResource("4_r3ocl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_cp8j0")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_r3ocl")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_msto8")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_ox1vm")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ynm26")
+expand_mode = 2
+
+[node name="MeatBoard" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="MeatBoard"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_yeq4o")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_nwdyp")
+metadata/_edit_lock_ = true
