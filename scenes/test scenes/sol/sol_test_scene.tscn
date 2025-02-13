@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c0my5v0xibqas" path="res://assets/temp assets/test meats/meat4.png" id="7_ox1vm"]
 [ext_resource type="Texture2D" uid="uid://jv6lg18waeq0" path="res://assets/temp assets/1280x720bg.png" id="9_nwdyp"]
 [ext_resource type="Texture2D" uid="uid://psqrlqny4ycm" path="res://assets/temp assets/640x360.png" id="9_yeq4o"]
-[ext_resource type="Script" path="res://freedragdrop.gd" id="10_d2o8s"]
+[ext_resource type="Script" path="res://scenes/test scenes/sol/freedragdrop.gd" id="10_d2o8s"]
 
 [node name="TestScene" type="Node2D"]
 
