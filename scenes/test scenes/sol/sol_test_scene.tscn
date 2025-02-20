@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://kgo18mmqew1d"]
+[gd_scene load_steps=18 format=3 uid="uid://kgo18mmqew1d"]
 
 [ext_resource type="PackedScene" uid="uid://dppme0jo221w" path="res://prefabs/mouse_cursor.tscn" id="1_20vts"]
 [ext_resource type="Texture2D" uid="uid://bmponpm7iuwgv" path="res://assets/temp assets/test meats/meat1.png" id="2_cp8j0"]
@@ -10,7 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://c0my5v0xibqas" path="res://assets/temp assets/test meats/meat4.png" id="7_ox1vm"]
 [ext_resource type="Texture2D" uid="uid://jv6lg18waeq0" path="res://assets/temp assets/1280x720bg.png" id="9_nwdyp"]
 [ext_resource type="Texture2D" uid="uid://psqrlqny4ycm" path="res://assets/temp assets/640x360.png" id="9_yeq4o"]
-[ext_resource type="Script" path="res://scenes/test scenes/sol/freedragdrop.gd" id="10_d2o8s"]
+[ext_resource type="PackedScene" uid="uid://b0444gueukw25" path="res://scene meats/meat.tscn" id="12_rp1rd"]
+[ext_resource type="Script" path="res://scenes/test scenes/sol/meatManager.gd" id="13_6vfla"]
+[ext_resource type="Script" path="res://scenes/test scenes/sol/meatmenu.gd" id="13_v3wo7"]
+[ext_resource type="PackedScene" uid="uid://cfwukvieu4ox2" path="res://scene meats/legmeat.tscn" id="15_b08fh"]
+[ext_resource type="PackedScene" uid="uid://bv1w2lgafr14l" path="res://scene meats/headmeat.tscn" id="15_xumo6"]
+[ext_resource type="PackedScene" uid="uid://b06e3svkl0m68" path="res://scene meats/eyemeat.tscn" id="16_ap5je"]
+[ext_resource type="PackedScene" uid="uid://fbq5g4rp7k1v" path="res://scene meats/tailmeat.tscn" id="17_n2ll3"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -135,32 +141,21 @@ grow_vertical = 0
 custom_minimum_size = Vector2(800, 200)
 layout_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("3_msto8")
-expand_mode = 2
-script = ExtResource("10_d2o8s")
-
-[node name="TextureButton" type="TextureButton" parent="MeatMenu/Control/ScrollContainer/HBoxContainer/TextureRect3"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-anchor_right = 0.995
-anchor_bottom = 0.975
-offset_left = 2.0
-offset_top = -7.0
-offset_right = 2.99998
-offset_bottom = -2.0
-texture_normal = ExtResource("2_cp8j0")
-texture_pressed = ExtResource("5_ynm26")
-texture_hover = ExtResource("4_r3ocl")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="TextureRect5" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_cp8j0")
 expand_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MeatMenu/Control/ScrollContainer/HBoxContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.225
+anchor_top = 0.2
+anchor_right = 0.704
+anchor_bottom = 0.715
+offset_right = -55.8
+offset_bottom = -63.0
+scale = Vector2(2.39513, 2.57711)
 
 [node name="TextureRect6" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -177,6 +172,16 @@ layout_mode = 2
 texture = ExtResource("7_ox1vm")
 expand_mode = 2
 
+[node name="TextureRect9" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_cp8j0")
+expand_mode = 2
+
+[node name="TextureRect10" type="TextureRect" parent="MeatMenu/Control/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_cp8j0")
+expand_mode = 2
+
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -189,5 +194,24 @@ grow_vertical = 2
 texture = ExtResource("9_nwdyp")
 metadata/_edit_lock_ = true
 
-[connection signal="button_down" from="MeatMenu/Control/ScrollContainer/HBoxContainer/TextureRect3/TextureButton" to="MeatMenu/Control/ScrollContainer/HBoxContainer/TextureRect3" method="_on_texture_button_button_down"]
-[connection signal="button_up" from="MeatMenu/Control/ScrollContainer/HBoxContainer/TextureRect3/TextureButton" to="MeatMenu/Control/ScrollContainer/HBoxContainer/TextureRect3" method="_on_texture_button_button_up"]
+[node name="meatmenu" type="Node2D" parent="."]
+script = ExtResource("13_v3wo7")
+
+[node name="meatmanager" type="Node2D" parent="."]
+position = Vector2(1, 18)
+script = ExtResource("13_6vfla")
+
+[node name="meat" parent="meatmanager" instance=ExtResource("12_rp1rd")]
+position = Vector2(352, 148)
+
+[node name="headmeat" parent="meatmanager" instance=ExtResource("15_xumo6")]
+position = Vector2(813, 162)
+
+[node name="legmeat" parent="meatmanager" instance=ExtResource("15_b08fh")]
+position = Vector2(109, 276)
+
+[node name="eyemeat" parent="meatmanager" instance=ExtResource("16_ap5je")]
+position = Vector2(113, 90)
+
+[node name="tailmeat" parent="meatmanager" instance=ExtResource("17_n2ll3")]
+position = Vector2(1058, 312)
